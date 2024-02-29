@@ -1,0 +1,102 @@
+:root {
+  --primary-color: #4864a5;
+  --secondary-color: #cae8fa;
+  --tertiary-color: #f2eeee;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+nav {
+  padding: 1rem 1rem;
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  margin-left: auto;
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--tertiary-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+main {
+  padding: 2rem 1rem;
+  background-color: var(--secondary-color);
+  flex: 1;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 4 by 4 rows */
+.board {
+  display: grid;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.easy {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 600px;
+}
+
+.medium {
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 900px;
+}
+
+.hard {
+  grid-template-columns: repeat(8, 1fr);
+  max-width: 1200px;
+}
+
+.card {
+  width: 8rem;
+  height: 8rem;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  border-radius: 0.5rem;
+}
+
+footer {
+  padding: 1rem 1rem;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+  text-align: center;
+}
