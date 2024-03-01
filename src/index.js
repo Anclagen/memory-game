@@ -27,13 +27,18 @@ function createGame(list) {
   const shuffledList = shuffle(list);
   shuffledList.forEach((color) => {
     const card = document.createElement("div");
+    const front = document.createElement("div");
+    front.style.backgroundColor = "lightgrey";
+    front.classList.add("front");
+    const back = document.createElement("div");
+    back.classList.add("back");
     card.classList.add("card");
     card.dataset.color = color;
-    card.style.backgroundColor = color;
+    back.style.backgroundColor = color;
     card.addEventListener("click", () => {
       card.classList.add("flipped");
       const flippedCards = document.querySelectorAll(".flipped");
-      const matchedCards = document.querySelectorAll(".matched");
+      let matchedCards = document.querySelectorAll(".matched");
 
       if (matchedCards.length === shuffledList.length) {
         board.innerHTML = "";
@@ -55,7 +60,17 @@ function createGame(list) {
           }, 1000);
         }
       }
+
+      matchedCards = document.querySelectorAll(".matched");
+
+      if (matchedCards.length === shuffledList.length) {
+        alert("You win!");
+        board.innerHTML = "";
+        createGame(list);
+      }
     });
+    card.append(front);
+    card.append(back);
     board.append(card);
   });
 }
