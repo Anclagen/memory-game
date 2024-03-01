@@ -1,7 +1,7 @@
 // lists of colors using css color names
 const listEasy = ["grey", "red", "blue", "green", "yellow", "purple", "orange", "pink"];
-const listMedium = [...listEasy, "black", "indigo", "cyan", "brown", "darkblue"];
-const listHard = [...listMedium, "lightgreen", "lightblue", "lightgrey", "lightyellow", "lightpink", "darkgreen"];
+const listMedium = [...listEasy, "indigo", "cyan", "brown", "darkblue"];
+const listHard = [...listMedium, "lightblue", "lightgrey", "lightyellow", "lightpink"];
 
 function shuffle(list) {
   const duplicate = [...list, ...list];
@@ -82,5 +82,22 @@ function createGame(list) {
   });
 }
 
-console.log(listEasy[23]);
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    board.innerHTML = "";
+
+    if (button.innerText === "Easy") {
+      board.classList = "board easy";
+      createGame(listEasy);
+    } else if (button.innerText === "Medium") {
+      board.classList = "board medium";
+      createGame(listMedium);
+    } else {
+      board.classList = "board hard";
+      createGame(listHard);
+    }
+  });
+});
+
 createGame(listEasy);
