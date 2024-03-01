@@ -36,8 +36,14 @@ function createGame(list) {
     card.dataset.color = color;
     back.style.backgroundColor = color;
     card.addEventListener("click", () => {
+      let flippedCards = document.querySelectorAll(".flipped");
+      if (flippedCards.length > 2) {
+        flippedCards.forEach((card) => {
+          card.classList.remove("flipped");
+        });
+      }
       card.classList.add("flipped");
-      const flippedCards = document.querySelectorAll(".flipped");
+      flippedCards = document.querySelectorAll(".flipped");
       let matchedCards = document.querySelectorAll(".matched");
 
       if (matchedCards.length === shuffledList.length) {
@@ -48,6 +54,7 @@ function createGame(list) {
 
       if (flippedCards.length === 2) {
         const [firstCard, secondCard] = flippedCards;
+
         if (firstCard.dataset.color === secondCard.dataset.color) {
           firstCard.classList.add("matched");
           firstCard.classList.remove("flipped");
